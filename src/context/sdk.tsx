@@ -1,4 +1,4 @@
-import  {createContext, FC, ReactElement, ReactNode} from 'react';
+import {createContext, FC, ReactElement, ReactNode} from 'react';
 
 import {MoviesSDK} from 'movies-sdk';
 
