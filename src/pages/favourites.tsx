@@ -1,9 +1,11 @@
 import {FC, ReactElement, useContext} from 'react';
+
+import {Movie as MovieType} from 'movies-sdk';
+
 import {SDKContext} from '../context';
 import {useAppDispatch, useAppSelector} from '../hooks';
 import {chunkArray} from '../utils';
 import {Movie, Navbar} from '../components';
-import {Movie as MovieType} from 'movies-sdk';
 
 const FavouriteMovies: FC = (): ReactElement => {
   const {getActions, getSelectors} = useContext(SDKContext);

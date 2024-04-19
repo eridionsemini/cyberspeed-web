@@ -1,5 +1,7 @@
 import {FC, ReactElement} from 'react';
+
 import {Movie as MovieType} from 'movies-sdk';
+
 import {Heart} from './heart';
 import {isFavourite} from '../utils';
 

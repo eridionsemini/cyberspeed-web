@@ -1,10 +1,12 @@
 import {FC, ReactElement, useContext, useEffect, useState} from 'react';
+
+import {useNavigate} from 'react-router-dom';
 import {Movie as MovieType} from 'movies-sdk';
+
 import {SDKContext} from '../context';
 import {useAppDispatch, useAppSelector} from '../hooks';
 import {chunkArray, debounce, isFavourite} from '../utils';
 import {Movie, Navbar} from '../components';
-import {useNavigate} from 'react-router-dom';
 
 const Movies: FC = (): ReactElement => {
   const [fetched, setFetched] = useState<boolean>(false);
