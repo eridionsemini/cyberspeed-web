@@ -366,6 +366,14 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.57.0.tgz#a5417ae8427873f1dd08b70b3574b453e67b5f7f"
   integrity sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==
 
+"@headlessui/react@^1.7.19":
+  version "1.7.19"
+  resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.7.19.tgz#91c78cf5fcb254f4a0ebe96936d48421caf75f40"
+  integrity sha512-Ll+8q3OlMJfJbAKM/+/Y2q6PPYbryqNTXDbryx7SXLIDamkF6iQFbriYHga0dY44PvDhvvBWCx1Xj4U5+G4hOw==
+  dependencies:
+    "@tanstack/react-virtual" "^3.0.0-beta.60"
+    client-only "^0.0.1"
+
 "@humanwhocodes/config-array@^0.11.14":
   version "0.11.14"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.14.tgz#d78e481a039f7566ecc9660b4ea7fe6b1fec442b"
@@ -549,6 +557,18 @@
   version "4.14.3"
   resolved "https://registry.yarnpkg.com/@rollup/rollup-win32-x64-msvc/-/rollup-win32-x64-msvc-4.14.3.tgz#5b2fb4d8cd44c05deef8a7b0e6deb9ccb8939d18"
   integrity sha512-/BypzV0H1y1HzgYpxqRaXGBRqfodgoBBCcsrujT6QRcakDQdfU+Lq9PENPh5jB4I44YWq+0C2eHsHya+nZY1sA==
+
+"@tanstack/react-virtual@^3.0.0-beta.60":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-virtual/-/react-virtual-3.4.0.tgz#5dcc0ac7c9e35d5db12c3bbe4cbc075bad684d93"
+  integrity sha512-GZN4xn/Tg5w7gvYeVcMVCeL4pEyUhvg+Cp6KX2Z01C4FRNxIWMgIQ9ibgMarNQfo+gt0PVLcEER4A9sNv/jlow==
+  dependencies:
+    "@tanstack/virtual-core" "3.4.0"
+
+"@tanstack/virtual-core@3.4.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@tanstack/virtual-core/-/virtual-core-3.4.0.tgz#afd72bc5a839b71c2cda87a738eb4eb18451b80a"
+  integrity sha512-75jXqXxqq5M5Veb9KP1STi8kA5u408uOOAefk2ftHDGCpUk3RP6zX++QqfbmHJTBiU72NQ+ghgCZVts/Wocz8Q==
 
 "@types/babel__core@^7.20.5":
   version "7.20.5"
@@ -916,6 +936,11 @@ chokidar@^3.5.3:
     readdirp "~3.6.0"
   optionalDependencies:
     fsevents "~2.3.2"
+
+client-only@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/client-only/-/client-only-0.0.1.tgz#38bba5d403c41ab150bff64a95c85013cf73bca1"
+  integrity sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==
 
 color-convert@^1.9.0:
   version "1.9.3"
@@ -1860,6 +1885,11 @@ react-dom@^18.2.0:
   dependencies:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
+
+react-icons@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-5.1.0.tgz#9e7533cc256571a610c2a1ec8a7a143fb1222943"
+  integrity sha512-D3zug1270S4hbSlIRJ0CUS97QE1yNNKDjzQe3HqY0aefp2CBn9VgzgES27sRR2gOvFK+0CNx/BW0ggOESp6fqQ==
 
 react-redux@^9.1.1:
   version "9.1.1"
