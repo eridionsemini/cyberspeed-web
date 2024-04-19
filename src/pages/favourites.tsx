@@ -1,5 +1,6 @@
 import {FC, ReactElement, useContext} from 'react';
 
+import {useNavigate} from 'react-router-dom';
 import {Movie as MovieType} from 'movies-sdk';
 
 import {SDKContext} from '../context';
@@ -17,8 +18,11 @@ const FavouriteMovies: FC = (): ReactElement => {
 
   const dispatch = useAppDispatch();
 
+  const navigate = useNavigate();
+
   const handleClick = (v: string) => {
     dispatch(getMovieDetails({i: v}));
+    navigate(`/movie/${v}`);
   };
 
   const handleHeartClick = (movie: MovieType) => dispatch(removeMovieFromFavourites(movie));

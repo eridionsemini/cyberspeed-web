@@ -63,11 +63,6 @@ const Movies: FC = (): ReactElement => {
     dispatch(getMoviesList({page, s: value}));
   }, 1000);
 
-  const handleInputChange = (txt: string) => {
-    dispatch(setFilterValue({key: 's', value: txt}));
-    handleDebouncedInputChange(txt);
-  };
-
   useEffect(() => {
     if (!loading && data && data.length === 0 && !fetched) {
       dispatch(getMoviesList({s: 'movie', page: 1}));

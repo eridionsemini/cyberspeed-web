@@ -1,4 +1,4 @@
-import {FC, ReactElement} from 'react';
+import {FC, ReactElement, MouseEvent} from 'react';
 
 import {Movie as MovieType} from 'movies-sdk';
 
@@ -20,6 +20,11 @@ export const Movie: FC<MovieProps> = ({
 }): ReactElement => {
   const isFav = isFavourite(fav, movie.imdbID);
 
+  const onClick = (e: MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+    handleHeartClick(movie);
+  };
+
   return (
     <div
       onClick={() => handleClick && handleClick(movie.imdbID)}
@@ -31,11 +36,7 @@ export const Movie: FC<MovieProps> = ({
       <div className="absolute bottom-4 left-4 z-10 text-sm text-cyan-500 font-bold">
         {movie.Year}
       </div>
-      <Heart
-        onClick={() => handleHeartClick(movie)}
-        isFavourite={isFav}
-        className="absolute top-4 right-4 z-10"
-      />
+      <Heart onClick={onClick} isFavourite={isFav} className="absolute top-4 right-4 z-40" />
     </div>
   );
 };
