@@ -1,9 +1,12 @@
+import { lazy, Suspense } from 'react';
 import { Provider } from 'react-redux';
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css';
 import { MoviesSDK } from 'movies-sdk';
 import { SDKContextProvider } from './context';
+import { Route, Routes } from 'react-router-dom';
+
+const Movies = lazy(() => import('../src/pages/movies'));
+const Movie = lazy(() => import('../src/pages/movie'));
+const FavouriteMovies = lazy(() => import('../src/pages/favourites'));
 
 function App() {
 
@@ -13,14 +16,12 @@ function App() {
   return (
     <SDKContextProvider>
       <Provider store={sdkStore}>
-        <div>
-          <a href="https://vitejs.dev" target="_blank">
-            <img src={viteLogo} className="logo" alt="Vite logo" />
-          </a>
-          <a href="https://react.dev" target="_blank">
-            <img src={reactLogo} className="logo react" alt="React logo" />
-          </a>
-        </div>
+        <Routes>
+          <Route path="/" element={<Suspense fallback={<div>Loading...</div>}><Movies /></Suspense>} />
+          <Route path="/movie/:id" element={<Suspense fallback={<div>Loading...</div>}><Movie /></Suspense>} />
+          <Route path="/favourites" element={<Suspense fallback={<div>Loading...</div>}><FavouriteMovies /></Suspense>} />
+          <Route path="*" element={<Suspense fallback={<div>Loading...</div>}><Movies /></Suspense>} />
+        </Routes>
       </Provider>
     </SDKContextProvider>
 
