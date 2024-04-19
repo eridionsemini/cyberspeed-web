@@ -1658,7 +1658,7 @@ minimatch@^9.0.1, minimatch@^9.0.4:
 
 "movies-sdk@https://github.com/eridionsemini/movies-sdk.git":
   version "1.0.0"
-  resolved "https://github.com/eridionsemini/movies-sdk.git#9ade296230259047b0bf755b184b996f209c79c6"
+  resolved "https://github.com/eridionsemini/movies-sdk.git#d01f0b4b84145664a59aff76ac577e1d7a2b3419"
   dependencies:
     "@reduxjs/toolkit" "^2.2.3"
     axios "^1.6.8"
