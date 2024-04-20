@@ -63,6 +63,11 @@ const Movies: FC = (): ReactElement => {
     dispatch(getMoviesList({page, s: value, apiKey: apiKey ? apiKey : ''}));
   }, 1000);
 
+  const handleInputChange = (txt: string) => {
+    dispatch(setFilterValue({key: 's', value: txt}));
+    handleDebouncedInputChange(txt);
+  };
+
   useEffect(() => {
     if (!loading && data && data.length === 0 && !fetched) {
       dispatch(getMoviesList({s, page: 1, apiKey: apiKey ? apiKey : ''}));
@@ -75,6 +80,22 @@ const Movies: FC = (): ReactElement => {
   return (
     <>
       <Navbar />
+      <div className="flex justify-center my-4">
+        <div className="mx-6 w-1/4">
+          <label htmlFor="search" className="block text-sm font-medium leading-6 text-gray-900">
+            Search for a movie
+          </label>
+          <input
+            type="text"
+            name="search"
+            value={s}
+            onChange={e => handleInputChange(e.target.value)}
+            id="search"
+            className="block w-full rounded-md px-4 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            placeholder="search"
+          />
+        </div>
+      </div>
       <div className="mx-10">
         {arrayMovies.map((movies, index) => (
           <div
@@ -96,7 +117,7 @@ const Movies: FC = (): ReactElement => {
             disabled={!hasMore}
             onClick={loadMoreClick}
             type="button"
-            className={`rounded  ${hasMore ? 'bg-indigo-600' : 'bg-gray-200'} px-2 py-1 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 mb-10`}>
+            className={`rounded  ${hasMore ? 'bg-indigo-600' : 'bg-gray-200'} px-2 py-1 text-xs font-semibold text-white shadow-sm ${hasMore ? 'hover:bg-indigo-500' : ''} focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${hasMore ? 'focus-visible:outline-indigo-600' : ''}`}>
             Load more
           </button>
         </div>
