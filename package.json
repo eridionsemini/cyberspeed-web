@@ -12,14 +12,15 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.19",
+    "movies-sdk": "https://github.com/eridionsemini/movies-sdk.git",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.1.0",
     "react-redux": "^9.1.1",
-    "react-router-dom": "^6.22.3",
-    "movies-sdk": "https://github.com/eridionsemini/movies-sdk.git"
+    "react-router-dom": "^6.22.3"
   },
   "devDependencies": {
+    "@types/node": "^20.12.7",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@typescript-eslint/eslint-plugin": "^7.2.0",

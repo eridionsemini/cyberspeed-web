@@ -11,7 +11,7 @@ import {Movie, Navbar} from '../components';
 const Movies: FC = (): ReactElement => {
   const [fetched, setFetched] = useState<boolean>(false);
 
-  const {getActions, getSelectors} = useContext(SDKContext);
+  const {getActions, getSelectors, apiKey} = useContext(SDKContext);
 
   const {favouritesSelector, moviesSelector} = getSelectors();
   const {
@@ -40,13 +40,13 @@ const Movies: FC = (): ReactElement => {
 
   const loadMoreClick = () => {
     if (hasMore) {
-      dispatch(loadMoreMovies({page: page + 1, s}));
+      dispatch(loadMoreMovies({page: page + 1, s, apiKey: apiKey ? apiKey : ''}));
       dispatch(incrementMoviesListPage());
     }
   };
 
   const handleClick = (v: string) => {
-    dispatch(getMovieDetails({i: v}));
+    dispatch(getMovieDetails({i: v, apiKey: apiKey ? apiKey : ''}));
     navigate(`/movie/${v}`);
   };
 
@@ -60,12 +60,12 @@ const Movies: FC = (): ReactElement => {
   };
 
   const handleDebouncedInputChange = debounce((value: string) => {
-    dispatch(getMoviesList({page, s: value}));
+    dispatch(getMoviesList({page, s: value, apiKey: apiKey ? apiKey : ''}));
   }, 1000);
 
   useEffect(() => {
     if (!loading && data && data.length === 0 && !fetched) {
-      dispatch(getMoviesList({s: 'movie', page: 1}));
+      dispatch(getMoviesList({s, page: 1, apiKey: apiKey ? apiKey : ''}));
       setFetched(true);
     }
   }, [data, dispatch, loading, page, fetched, getMoviesList]);

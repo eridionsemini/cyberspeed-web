@@ -9,7 +9,7 @@ import {chunkArray} from '../utils';
 import {Movie, Navbar} from '../components';
 
 const FavouriteMovies: FC = (): ReactElement => {
-  const {getActions, getSelectors} = useContext(SDKContext);
+  const {getActions, getSelectors, apiKey} = useContext(SDKContext);
 
   const {favouritesSelector} = getSelectors();
   const {removeMovieFromFavourites, getMovieDetails} = getActions();
@@ -21,7 +21,7 @@ const FavouriteMovies: FC = (): ReactElement => {
   const navigate = useNavigate();
 
   const handleClick = (v: string) => {
-    dispatch(getMovieDetails({i: v}));
+    dispatch(getMovieDetails({i: v, apiKey: apiKey ? apiKey : ''}));
     navigate(`/movie/${v}`);
   };
 

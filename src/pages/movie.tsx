@@ -10,7 +10,7 @@ import {isFavourite, convertStringToArray} from '../utils';
 
 const Movie: FC = (): ReactElement | null => {
   const [fetched, setFetched] = useState<boolean>(false);
-  const {getActions, getSelectors} = useContext(SDKContext);
+  const {getActions, getSelectors, apiKey} = useContext(SDKContext);
   const dispatch = useAppDispatch();
   const {favouritesSelector, movieDetailsSelector} = getSelectors();
   const {addMovieToFavourites, removeMovieFromFavourites, getMovieDetails} = getActions();
@@ -21,7 +21,7 @@ const Movie: FC = (): ReactElement | null => {
   useEffect(() => {
     if (!movie && !loading && id && !fetched) {
       setFetched(true);
-      dispatch(getMovieDetails({i: id}));
+      dispatch(getMovieDetails({i: id, apiKey: apiKey ? apiKey : ''}));
     }
   }, [movie, loading, id, fetched]);
 
