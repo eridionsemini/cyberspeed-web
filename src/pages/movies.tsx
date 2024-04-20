@@ -77,7 +77,9 @@ const Movies: FC = (): ReactElement => {
       <Navbar />
       <div className="mx-10">
         {arrayMovies.map((movies, index) => (
-          <div key={index.toString()} className="flex my-4 items-center justify-evenly">
+          <div
+            key={index.toString()}
+            className="flex flex-col my-4 items-center justify-evenly sm:flex-row">
             {movies.map((movie, index) => (
               <Movie
                 key={index.toString()}
@@ -89,6 +91,15 @@ const Movies: FC = (): ReactElement => {
             ))}
           </div>
         ))}
+        <div className="mb-10 flex justify-center">
+          <button
+            disabled={!hasMore}
+            onClick={loadMoreClick}
+            type="button"
+            className={`rounded  ${hasMore ? 'bg-indigo-600' : 'bg-gray-200'} px-2 py-1 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 mb-10`}>
+            Load more
+          </button>
+        </div>
       </div>
     </>
   );
