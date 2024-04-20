@@ -1,8 +1,11 @@
 import {lazy, Suspense} from 'react';
+
 import {Provider} from 'react-redux';
 import {MoviesSDK} from 'movies-sdk';
-import {SDKContextProvider} from './context';
 import {Route, Routes} from 'react-router-dom';
+
+import {Spinner} from './components';
+import {SDKContextProvider} from './context';
 
 const Movies = lazy(() => import('../src/pages/movies'));
 const Movie = lazy(() => import('../src/pages/movie'));
@@ -19,7 +22,7 @@ function App() {
           <Route
             path="/"
             element={
-              <Suspense fallback={<div>Loading...</div>}>
+              <Suspense fallback={<Spinner />}>
                 <Movies />
               </Suspense>
             }
@@ -27,7 +30,7 @@ function App() {
           <Route
             path="/movie/:id"
             element={
-              <Suspense fallback={<div>Loading...</div>}>
+              <Suspense fallback={<Spinner />}>
                 <Movie />
               </Suspense>
             }
@@ -35,7 +38,7 @@ function App() {
           <Route
             path="/favourites"
             element={
-              <Suspense fallback={<div>Loading...</div>}>
+              <Suspense fallback={<Spinner />}>
                 <FavouriteMovies />
               </Suspense>
             }
@@ -43,7 +46,7 @@ function App() {
           <Route
             path="*"
             element={
-              <Suspense fallback={<div>Loading...</div>}>
+              <Suspense fallback={<Spinner />}>
                 <Movies />
               </Suspense>
             }
