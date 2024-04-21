@@ -21,9 +21,9 @@ const Movie: FC = (): ReactElement | null => {
   useEffect(() => {
     if (!movie && !loading && id && !fetched) {
       setFetched(true);
-      dispatch(getMovieDetails({i: id, apiKey: apiKey ? apiKey : ''}));
+      dispatch(getMovieDetails({i: id, apiKey}));
     }
-  }, [movie, loading, id, fetched]);
+  }, [movie, loading, id, fetched, apiKey, dispatch, getMovieDetails]);
 
   if (!movie) return null;
 

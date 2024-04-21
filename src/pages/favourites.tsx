@@ -21,7 +21,7 @@ const FavouriteMovies: FC = (): ReactElement => {
   const navigate = useNavigate();
 
   const handleClick = (v: string) => {
-    dispatch(getMovieDetails({i: v, apiKey: apiKey ? apiKey : ''}));
+    dispatch(getMovieDetails({i: v, apiKey}));
     navigate(`/movie/${v}`);
   };
 
@@ -34,7 +34,9 @@ const FavouriteMovies: FC = (): ReactElement => {
       <Navbar />
       <div className="mx-10">
         {arrayMovies.map((movies, index) => (
-          <div key={index.toString()} className="flex my-4 items-center justify-evenly">
+          <div
+            key={index.toString()}
+            className="flex flex-col my-4 items-center justify-evenly sm:flex-row">
             {movies.map((movie, index) => (
               <Movie
                 key={index.toString()}

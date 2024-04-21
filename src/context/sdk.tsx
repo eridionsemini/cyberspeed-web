@@ -9,11 +9,16 @@ interface SDKContextProps {
 
 const {getActions, getSelectors, getStore} = new MoviesSDK();
 
-export const SDKContext = createContext({getActions, getSelectors, getStore, apiKey});
+export const SDKContext = createContext({
+  getActions,
+  getSelectors,
+  getStore,
+  apiKey: apiKey ? apiKey : '',
+});
 
 export const SDKContextProvider: FC<SDKContextProps> = ({children}): ReactElement => {
   return (
-    <SDKContext.Provider value={{getActions, getSelectors, getStore, apiKey}}>
+    <SDKContext.Provider value={{getActions, getSelectors, getStore, apiKey: apiKey ? apiKey : ''}}>
       {children}
     </SDKContext.Provider>
   );
